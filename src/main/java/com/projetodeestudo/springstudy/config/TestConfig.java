@@ -1,11 +1,9 @@
 package com.projetodeestudo.springstudy.config;
 
-import com.projetodeestudo.springstudy.entities.Category;
-import com.projetodeestudo.springstudy.entities.Order;
-import com.projetodeestudo.springstudy.entities.OrderStatus;
-import com.projetodeestudo.springstudy.entities.User;
+import com.projetodeestudo.springstudy.entities.*;
 import com.projetodeestudo.springstudy.repositories.CategoryRepository;
 import com.projetodeestudo.springstudy.repositories.OrderRepository;
+import com.projetodeestudo.springstudy.repositories.ProductRepository;
 import com.projetodeestudo.springstudy.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -27,6 +25,9 @@ public class TestConfig implements CommandLineRunner {
 
     @Autowired
     private CategoryRepository categoryRepository;
+
+    @Autowired
+    private ProductRepository productRepository;
 
 
 
@@ -50,6 +51,15 @@ public class TestConfig implements CommandLineRunner {
         Order o3 = new Order(Instant.parse("2019-07-22T15:21:22Z"), OrderStatus.WAITING_PAYMENT, u1);
 
         orderRepository.saveAll(Arrays.asList(o1,o2,o3));
+
+        Product p1 = new Product("The Lord of the Rings", "Lorem ipsum dolor sit amet, consectetur.", 90.5, "");
+        Product p2 = new Product("Smart TV", "Nulla eu imperdiet purus. Maecenas ante.", 2190.0, "");
+        Product p3 = new Product("Macbook Pro", "Nam eleifend maximus tortor, at mollis.", 1250.0, "");
+        Product p4 = new Product("PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0, "");
+        Product p5 = new Product("Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, "");
+
+        productRepository.saveAll(Arrays.asList(p1,p2,p3,p4,p5));
+
 
     }
 }

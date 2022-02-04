@@ -28,6 +28,9 @@ public class Order implements Serializable {
 
     private Integer orderStatus;
 
+    @Transient
+    private Product items;
+
     public Order() {
     }
 
@@ -69,6 +72,10 @@ public class Order implements Serializable {
         if (orderStatus != null) {
             this.orderStatus = orderStatus.getCode();
         }
+    }
+
+    public Product getItems() {
+        return items;
     }
 
     @Override
