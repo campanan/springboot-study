@@ -28,8 +28,6 @@ public class Product  implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
 
-    @Transient
-    private List<Order> orders;
 
     public Product() {
     }
@@ -85,7 +83,4 @@ public class Product  implements Serializable {
         return categories;
     }
 
-    public List<Order> getOrders() {
-        return orders;
-    }
 }

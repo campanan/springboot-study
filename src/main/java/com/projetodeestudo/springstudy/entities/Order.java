@@ -28,8 +28,6 @@ public class Order implements Serializable {
 
     private Integer orderStatus;
 
-    @Transient
-    private Product items;
 
     public Order() {
     }
@@ -74,9 +72,6 @@ public class Order implements Serializable {
         }
     }
 
-    public Product getItems() {
-        return items;
-    }
 
     @Override
     public boolean equals(Object o) {
