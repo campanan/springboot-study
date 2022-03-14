@@ -1,5 +1,7 @@
 package com.projetodeestudo.springstudy.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
@@ -16,6 +18,7 @@ public class Payment implements Serializable {
 
     private Instant moment;
 
+    @JsonIgnore
     @OneToOne
     @MapsId
     private Order order;
@@ -44,7 +47,7 @@ public class Payment implements Serializable {
         this.moment = moment;
     }
 
-    public Order getOrder() {
+       public Order getOrder() {
         return order;
     }
 
